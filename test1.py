@@ -54,6 +54,7 @@ def evaluate(input_data):
                 if result[1] == 0:
                     raise ZeroDivisionError("divide by zero")
                 result = [result[0]//result[1]]
+                # lower = converte para letras minúsculas
             elif elem.lower() == 'dup':
                 if len(result) < 1:
                     raise StackUnderflowError("Insufficient number of items in stack")
@@ -73,6 +74,7 @@ def evaluate(input_data):
                     raise StackUnderflowError("Insufficient number of items in stack")
                 result.append(result[-2])
             else:
+                # Exceções de tratativas de erros.
                 try:
                     result.append(int(elem))
                 except:
@@ -88,6 +90,7 @@ def evaluate(input_data):
                 defined = strings.lower().split()[1:-1]
                 variable = defined[0]
                 other = defined[1:]
+                # custom.keys() obtém as chaves do dicionário
                 if len(other) == 1 and other[0] in custom.keys():
                     custom[variable] = custom[other[0]]
                 elif other[0] in custom.keys():
